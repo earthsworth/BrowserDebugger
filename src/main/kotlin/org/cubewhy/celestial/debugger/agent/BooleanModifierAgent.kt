@@ -4,10 +4,20 @@ import java.lang.instrument.*
 import org.objectweb.asm.*
 import java.security.ProtectionDomain
 
+@Suppress("UNUSED")
 class BooleanModifierAgent {
     companion object {
         @JvmStatic
         fun premain(agentArgs: String?, inst: Instrumentation) {
+            // set serviceOverride
+            if (agentArgs != "useCustom") {
+                println("[LunarDebugger] Enable LunarCN servers...")
+                System.setProperty("serviceOverrideAuthenticator", "wss://ws.lunarclient.top/ws")
+                System.setProperty("serviceOverrideAssetServer", "wss://ws.lunarclient.top/ws")
+            } else {
+                println("[LunarDebugger] The default websockets were disabled, please manual config it in JVM args")
+            }
+            println("[LunarDebugger] Patch LunarClient...")
             inst.addTransformer(ClassTransformer(), true)
         }
     }
