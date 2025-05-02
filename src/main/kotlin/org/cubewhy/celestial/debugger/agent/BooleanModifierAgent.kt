@@ -7,6 +7,7 @@ import java.lang.instrument.ClassFileTransformer
 import java.lang.instrument.Instrumentation
 import java.security.ProtectionDomain
 import javax.swing.JOptionPane
+import kotlin.system.exitProcess
 
 data class ServerDTO(
     val encrypted: Boolean,
@@ -36,7 +37,8 @@ class BooleanModifierAgent {
                         // unsupported version
                         val msg = "Please update your Celestial version to 3.2.1 or higher!\nhttps://lunarclient.top"
                         JOptionPane.showMessageDialog(null, msg)
-                        throw RuntimeException(msg)
+                        println("[LunarDebugger] $msg")
+                        exitProcess(1)
                     }
                 } catch (t: Throwable) {
                     // ignored
