@@ -4,14 +4,15 @@ plugins {
 }
 
 group = "org.cubewhy.celestial"
-version = "1.1.0-SNAPSHOT"
+version = "1.2.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    implementation("org.ow2.asm:asm:9.7.1")
+    implementation("org.apache.maven:maven-artifact:4.0.0-rc-3")
+    compileOnly("org.ow2.asm:asm:9.7.1")
 
     testImplementation(kotlin("test"))
 }
@@ -43,6 +44,8 @@ tasks.shadowJar {
     exclude("META-INF/versions/**")
 
     exclude("org/junit/**")
+
+//    relocate("org.objectweb.asm", "shadowed.org.objectweb.asm")
 }
 
 tasks.test {
