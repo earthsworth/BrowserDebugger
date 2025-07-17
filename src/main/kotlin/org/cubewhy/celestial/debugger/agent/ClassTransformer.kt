@@ -18,7 +18,7 @@ class ClassTransformer : ClassFileTransformer {
             cr.accept(analyzer, 0)
 
             if (analyzer.matchesCriteria()) {
-                println("[LunarDebugger] Find class: $className")
+                println("[BrowserDebugger] Find class: $className")
                 val cw = ClassWriter(ClassWriter.COMPUTE_FRAMES or ClassWriter.COMPUTE_MAXS)
                 val modifier = ClassModifier(cw, analyzer.booleanFieldName, className)
                 cr.accept(modifier, 0)

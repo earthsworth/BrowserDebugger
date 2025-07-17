@@ -24,7 +24,7 @@ tasks.jar {
     archiveVersion.set("")
     manifest {
         attributes(
-            "Premain-Class" to "org.cubewhy.celestial.debugger.agent.LunarDebuggerAgent",
+            "Premain-Class" to "org.cubewhy.celestial.debugger.agent.BrowserDebuggerAgent",
             "Can-Redefine-Classes" to "true",
             "Can-Retransform-Classes" to "true"
         )

@@ -62,7 +62,7 @@ Service Override feature will still work
 
 > Warning: You'll be tracked by the browser company, not recommended.
 
-- Set Javaagent parameter to `proprietary` to disable the default behaver in LunarDebugger
+- Set Javaagent parameter to `proprietary` to disable the default behaver in BrowserDebugger
 - pass `-DdevServices=true` to the browser VM parameters to connect to the dev backend of the proprietary service
 
 Service Override feature will still work
