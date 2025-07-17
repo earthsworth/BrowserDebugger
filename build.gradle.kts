@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "org.cubewhy.celestial"
-version = "1.2.0-SNAPSHOT"
+version = "1.3.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
@@ -24,7 +24,7 @@ tasks.jar {
     archiveVersion.set("")
     manifest {
         attributes(
-            "Premain-Class" to "org.cubewhy.celestial.debugger.agent.BooleanModifierAgent",
+            "Premain-Class" to "org.cubewhy.celestial.debugger.agent.LunarDebuggerAgent",
             "Can-Redefine-Classes" to "true",
             "Can-Retransform-Classes" to "true"
         )
@@ -53,5 +53,5 @@ tasks.test {
 }
 
 kotlin {
-    jvmToolchain(21)
+    jvmToolchain(17)
 }

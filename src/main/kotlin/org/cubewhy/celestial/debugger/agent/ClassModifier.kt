@@ -22,8 +22,9 @@ class ClinitModifier(mv: MethodVisitor, private val booleanFieldName: String?, p
     override fun visitInsn(opcode: Int) {
         if (opcode == Opcodes.RETURN) {
             println("Modify <clinit> to enable debug mode ($booleanFieldName = false)")
-            mv.visitInsn(Opcodes.ICONST_0) // 压入 false (0)
-            mv.visitFieldInsn(Opcodes.PUTSTATIC, className, booleanFieldName, "Z") // 赋值给静态字段
+            // push false to the static field
+            mv.visitInsn(Opcodes.ICONST_0)
+            mv.visitFieldInsn(Opcodes.PUTSTATIC, className, booleanFieldName, "Z")
         }
         super.visitInsn(opcode)
     }

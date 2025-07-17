@@ -15,11 +15,11 @@ class ClassAnalyzer : ClassVisitor(Opcodes.ASM9) {
         if (access and Opcodes.ACC_STATIC != 0) {
             staticFieldCount++
             when (descriptor) {
-                "Z" -> { // boolean 类型
+                "Z" -> {
                     hasBooleanField = true
                     booleanFieldName = name
                 }
-                "Ljava/lang/String;" -> stringFieldCount++ // String 类型
+                "Ljava/lang/String;" -> stringFieldCount++
             }
         }
         return super.visitField(access, name, descriptor, signature, value)
