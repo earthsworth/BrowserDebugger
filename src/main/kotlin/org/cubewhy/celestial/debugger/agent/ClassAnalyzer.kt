@@ -32,6 +32,6 @@ class ClassAnalyzer : ClassVisitor(Opcodes.ASM9) {
     }
 
     fun matchesCriteria(): Boolean {
-        return staticFieldCount == 6 && hasBooleanField && stringFieldCount == 5 && hasTargetEnum
+        return staticFieldCount >= 6 && hasBooleanField && stringFieldCount >= 5 && hasTargetEnum
     }
 }
