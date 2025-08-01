@@ -51,7 +51,3 @@ tasks.shadowJar {
 tasks.test {
     useJUnitPlatform()
 }
-
-kotlin {
-    jvmToolchain(17)
-}
