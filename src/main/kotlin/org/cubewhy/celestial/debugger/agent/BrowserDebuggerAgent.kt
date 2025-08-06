@@ -64,7 +64,7 @@ private fun updateOverride(overrideName: String, defaultValue: String?) {
             System.setProperty(propName, it)
         }
     } else {
-        val value = System.getProperty(overrideName)
+        val value = System.getProperty(propName)
         println("[BrowserDebugger] Use value of service override from user-defined properties: ${overrideName}=${value}")
     }
 }
