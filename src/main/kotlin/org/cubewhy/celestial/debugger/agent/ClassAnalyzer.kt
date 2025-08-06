@@ -32,6 +32,6 @@ class ClassAnalyzer : ClassVisitor(Opcodes.ASM9) {
     }
 
     fun matchesCriteria(): Boolean {
-        return staticFieldCount >= 6 && hasBooleanField && stringFieldCount >= 5 && hasTargetEnum && booleanFieldName?.lowercase() == "production"
+        return (staticFieldCount == 8  && stringFieldCount == 7 || (staticFieldCount == 6  && stringFieldCount == 5)) && hasBooleanField && hasTargetEnum
     }
 }
