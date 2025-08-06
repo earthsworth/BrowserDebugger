@@ -57,10 +57,11 @@ class BrowserDebuggerAgent {
 }
 
 private fun updateOverride(overrideName: String, defaultValue: String?) {
-    if (!System.getProperties().containsKey(overrideName)) {
+    val propName = "serviceOverride${overrideName}"
+    if (!System.getProperties().containsKey(propName)) {
         defaultValue?.let {
             println("[BrowserDebugger] Apply default value of service override: ${overrideName}=${defaultValue}")
-            System.setProperty("serviceOverride${overrideName}", it)
+            System.setProperty(propName, it)
         }
     } else {
         val value = System.getProperty(overrideName)
