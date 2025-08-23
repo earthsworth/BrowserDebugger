@@ -1,10 +1,7 @@
 package org.cubewhy.celestial.debugger.agent
 
 import org.cubewhy.celestial.debugger.entity.ApiServer
-import org.cubewhy.celestial.debugger.utils.compareVersions
 import java.lang.instrument.Instrumentation
-import javax.swing.JOptionPane
-import kotlin.system.exitProcess
 
 @Suppress("UNUSED")
 class BrowserDebuggerAgent {
@@ -13,22 +10,22 @@ class BrowserDebuggerAgent {
         fun premain(agentArgs: String?, inst: Instrumentation) {
             println("[BrowserDebugger] Welcome to LunarCN! https://lunarclient.top")
             println("[BrowserDebugger] Enjoy the FOSS power!")
-            val celestialVersion = System.getProperty("celestialVersion")
-            if (celestialVersion != null) {
-                // compare version
-                try {
-                    val result = compareVersions(celestialVersion, "3.2.1-SNAPSHOT")
-                    if (result < 0) {
-                        // unsupported version
-                        val msg = "Please update your Celestial version to 3.2.1 or higher!\nhttps://lunarclient.top"
-                        JOptionPane.showMessageDialog(null, msg)
-                        println("[BrowserDebugger] $msg")
-                        exitProcess(1)
-                    }
-                } catch (t: Throwable) {
-                    // ignored
-                }
-            }
+//            val celestialVersion = System.getProperty("celestialVersion")
+//            if (celestialVersion != null) {
+//                // compare version
+//                try {
+//                    val result = compareVersions(celestialVersion, "3.2.1-SNAPSHOT")
+//                    if (result < 0) {
+//                        // unsupported version
+//                        val msg = "Please update your Celestial version to 3.2.1 or higher!\nhttps://lunarclient.top"
+//                        JOptionPane.showMessageDialog(null, msg)
+//                        println("[BrowserDebugger] $msg")
+//                        exitProcess(1)
+//                    }
+//                } catch (t: Throwable) {
+//                    // ignored
+//                }
+//            }
 
             println("[BrowserDebugger] This software is complete open source, you can view the backend source at https://codeberg.org/earthsworth/lunar-api")
             println("[BrowserDebugger] And the frontend stuff at https://github.com/earthsworth/BrowserDebugger")
