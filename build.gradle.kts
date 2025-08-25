@@ -12,7 +12,7 @@ repositories {
 
 dependencies {
     implementation("org.apache.maven:maven-artifact:4.0.0-rc-3")
-    compileOnly("org.ow2.asm:asm:9.7.1")
+    compileOnly("org.ow2.asm:asm:9.8")
 
     testImplementation(kotlin("test"))
 }
